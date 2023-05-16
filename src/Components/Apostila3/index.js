@@ -13,6 +13,14 @@ const Index = () => {
         setNum(num + 1)
     }
 
+    subNumber = () => {
+        setNum(num - 1)
+    }
+
+    zeroNumber = () => {
+        setNum(0)
+    }
+
     return (
         <View style={Styles.container}>
             <Text style={Styles.paragraph}>
@@ -23,13 +31,31 @@ const Index = () => {
                 onPress={() => {
                     addNumber();
                 }}
-                
-            >
 
-                {/* <Feather  name="plus" size={24} color='white' /> */}
+            >
                 <Text style={Styles.textButton}>+1</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                style={{ ...Styles.button, marginTop: 10 }}
+                onPress={() => {
+                    subNumber();
+                }}>
+                <Text style={Styles.textButton}>-1</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={{ ...Styles.button, marginTop: 10 }}
+                onPress={() => {
+                    zeroNumber();
+                }}>
+                <Text style={Styles.textButton}>0</Text>
+
+            </TouchableOpacity>
             <Text style={Styles.textCounter}>{num}</Text>
+            <Tex 
+            style={Styles.paragraph}>
+                asdf
+            </Tex> 
+            
         </View>
     );
 }
