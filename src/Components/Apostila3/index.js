@@ -24,39 +24,40 @@ const Index = () => {
     return (
         <View style={Styles.container}>
             <Text style={Styles.paragraph}>
-                Exemplo 3
+                Contador
             </Text>
-            <TouchableOpacity
-                style={Styles.button}
-                onPress={() => {
-                    addNumber();
-                }}
 
-            >
-                <Text style={Styles.textButton}>+1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={{ ...Styles.button, marginTop: 10 }}
-                onPress={() => {
-                    subNumber();
-                }}>
-                <Text style={Styles.textButton}>-1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={{ ...Styles.button, marginTop: 10 }}
-                onPress={() => {
-                    zeroNumber();
-                }}>
-                <Text style={Styles.textButton}>0</Text>
+            <View style={Styles.containerButtons}>
+                <TouchableOpacity
+                    style={{ ...Styles.button, marginTop: 10, backgroundColor: 'red' }}
+                    onPress={() => {
+                        subNumber();
+                    }}>
+                        <Feather name='minus' size={24} color={'white'}>1</Feather>
+                </TouchableOpacity>
+                <Text style={Styles.textCounter}>{num}</Text>
+                <TouchableOpacity
+                    style={{ ...Styles.button, backgroundColor: 'green' }}
+                    onPress={() => {
+                        addNumber();
+                    }}
+                >
+                    <Feather name='plus' size={24} color={'white'}>1</Feather>
 
-            </TouchableOpacity>
-            <Text style={Styles.textCounter}>{num}</Text>
-            <Tex 
-            style={Styles.paragraph}>
-                asdf
-            </Tex> 
-            
-        </View>
+                </TouchableOpacity>
+
+            </View>
+            <View style={Styles.contentZero}>
+                <TouchableOpacity
+                    style={{ ...Styles.buttonZero, marginTop: 10 }}
+                    onPress={() => {
+                        zeroNumber();
+                    }}>
+                    <Text style={Styles.textButton}>Zerar</Text>
+
+                </TouchableOpacity>
+            </View>
+        </View >
     );
 }
 
