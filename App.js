@@ -4,12 +4,13 @@ import Constants from 'expo-constants';
 import Apostila3 from './src/Components/Apostila3/'
 import Apostila4 from './src/Components/Apostila4/'
 import Apostila5 from './src/Components/Apostila5/'
+import Calc from './src/Components/Calc/'
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Apostila5 />
+      <Calc />
     </View>
   );
 }
