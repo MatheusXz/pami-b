@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import Constants from 'expo-constants';
 
 
 const Calculadora = () => {
@@ -108,12 +109,9 @@ const Calculadora = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#000',
-        color: 'gray',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: Constants.statusBarHeight,
     },
     title: {
         fontSize: 30,

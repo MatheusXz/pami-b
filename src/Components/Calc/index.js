@@ -1,16 +1,39 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import Constants from 'expo-constants';
+
+// CALCULADORA COMUM
 
 const Calc = () => {
+    const [resultado, setResult] = useState(0);
+    const [buttonPressed, setButtonPressed] = useState(false);
+
+
+    const handlePressIn = () => {
+        setButtonPressed(true);
+      };
+    
+      const handlePressOut = () => {
+        setButtonPressed(false);
+      };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.headerResult}>
-                    0
+                    {resultado}
                 </Text>
             </View>
             <View style={styles.contentsButtons}>
-                <TouchableOpacity style={styles.buttonAC}>
+
+                <TouchableOpacity
+                    onPress={() => {
+                        setResult(0)
+
+                    }}
+                    onPressIn={handlePressIn}
+                    onPressOut={handlePressOut}
+                    style={[styles.button,styles.buttonAC, buttonPressed && styles.buttonPressed]}
+                >
                     <Text>AC</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button}>
@@ -79,47 +102,62 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
     },
     header: {
         flexDirection: 'row',
         width: '100%',
-        height: '25%',
-        alignItems: 'center',
+        height: '50%',
+        alignItems: 'flex-end',
         justifyContent: 'flex-end',
-        backgroundColor: '#000000',
+        backgroundColor: '#fff',
+        borderBottomColor: 'gray',
+        borderBottomWidth: 0.5,
     },
     headerResult: {
         fontSize: 50,
-        margin: 15,
+        padding: 15,
     },
     contentsButtons: {
         flexDirection: 'row',
         width: '100%',
-        height: '15%',
-        backgroundColor: '#ff00ff',
+        height: '10%',
+        backgroundColor: '#fff',
+        borderRadius: 50,
     },
     button: {
         width: '25%',
+        height: '85%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#00ff00',
-        borderWidth: 2,
+        backgroundColor: '#ffffff',
         elevation: 2,
+        borderRadius: 10,
+        padding: 10
     },
     buttonAC: {
         width: '75%',
-        
+        height: '85%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#00ff00',
-        borderWidth: 2,
+        backgroundColor: '#fff',
+        elevation: 2,
+        borderRadius: 10,
+        color: '#fff'
     },
     buttonZero: {
         width: '50%',
+        height: '85%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#00ff00',
-        borderWidth: 2,
+        backgroundColor: '#ffffff',
+        elevation: 2,
+        borderRadius: 10,
+        padding: 10
+    },
+    buttonPressed: {
+        backgroundColor: '#000',
+        color: '#fff',
     }
 
 })
