@@ -6,90 +6,179 @@ import Constants from 'expo-constants';
 
 const Calc = () => {
     const [resultado, setResult] = useState(0);
+    const [numPress, setNumPress] = useState();
+
     const [buttonPressed, setButtonPressed] = useState(false);
 
+    const valuePress = (number) => setNumPress(numPress + number.toString())
+
+    // const fim = (num) => {
+
+    //     // setResult(parseFloat(numPress))
+    // }
 
     const handlePressIn = () => {
         setButtonPressed(true);
-      };
-    
-      const handlePressOut = () => {
+    };
+
+    const handlePressOut = () => {
         setButtonPressed(false);
-      };
+    };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.headerResult}>
-                    {resultado}
+                    {numPress}
+                    {/* {resultado} */}
                 </Text>
             </View>
             <View style={styles.contentsButtons}>
 
                 <TouchableOpacity
                     onPress={() => {
-                        setResult(0)
-
+                        setNumPress('0')
                     }}
                     onPressIn={handlePressIn}
                     onPressOut={handlePressOut}
-                    style={[styles.button,styles.buttonAC, buttonPressed && styles.buttonPressed]}
+                    style={[styles.button, styles.buttonAC, buttonPressed && styles.buttonPressed]}
                 >
                     <Text>AC</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress('/')
+                    }
+                    }
+                >
                     <Text>/</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.contentsButtons}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(7)
+                    }
+                    }
+                >
+
                     <Text>7</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(8)
+                    }
+                    }
+                >
                     <Text>8</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(9)
+                    }
+                    }
+                >
                     <Text>9</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress('*')
+                    }
+                    }
+                >
                     <Text>*</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.contentsButtons}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(4)
+                    }
+                    }
+                >
                     <Text>4</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(5)
+                    }
+                    }
+                >
                     <Text>5</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(6)
+                    }
+                    }
+                >
                     <Text>6</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress('-')
+                    }
+                    }
+                >
                     <Text>-</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.contentsButtons}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(1)
+                    }
+                    }
+                >
                     <Text>1</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(2)
+                    }
+                    }
+                >
                     <Text>2</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress(3)
+                    }
+                    }
+                >
                     <Text>3</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress('+')
+                    }
+                    }
+                >
                     <Text>+</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.contentsButtons}>
-                <TouchableOpacity style={styles.buttonZero}>
+                <TouchableOpacity style={styles.buttonZero}
+                    onPress={() => {
+                        valuePress(0)
+                    }
+                    }
+                >
                     <Text>0</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        valuePress('.')
+                    }
+                    }
+                >
                     <Text>.</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => {
+                        fim(numPress)
+                    }
+                    }
+                >
                     <Text>=</Text>
                 </TouchableOpacity>
             </View>
