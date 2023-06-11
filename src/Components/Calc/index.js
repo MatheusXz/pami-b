@@ -6,24 +6,20 @@ import Constants from 'expo-constants';
 
 const Calc = () => {
     const [resultado, setResult] = useState(0);
-    const [numPress, setNumPress] = useState();
+    const [numPress, setNumPress] = useState('');
 
     const [buttonPressed, setButtonPressed] = useState(false);
 
-    const valuePress = (number) => setNumPress(numPress + number.toString())
+    const valuePress = (number) => {
 
-    // const fim = (num) => {
+        const newNumPress = numPress + number.toString();
+        setNumPress(newNumPress);
 
-    //     // setResult(parseFloat(numPress))
-    // }
-
-    const handlePressIn = () => {
-        setButtonPressed(true);
     };
 
-    const handlePressOut = () => {
-        setButtonPressed(false);
-    };
+
+
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -35,11 +31,12 @@ const Calc = () => {
             <View style={styles.contentsButtons}>
 
                 <TouchableOpacity
+
+
                     onPress={() => {
                         setNumPress('0')
                     }}
-                    onPressIn={handlePressIn}
-                    onPressOut={handlePressOut}
+
                     style={[styles.button, styles.buttonAC, buttonPressed && styles.buttonPressed]}
                 >
                     <Text>AC</Text>
@@ -47,6 +44,8 @@ const Calc = () => {
                 <TouchableOpacity style={styles.button}
                     onPress={() => {
                         valuePress('/')
+
+
                     }
                     }
                 >
@@ -175,7 +174,105 @@ const Calc = () => {
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button}
                     onPress={() => {
-                        fim(numPress)
+                        // const splitNumPress = numPress.split('/');
+                        // setNumPress(splitNumPress.replace(',','/'));
+
+                        // console.log(splitNumPress);
+
+                        // for (let contador = 0; contador < numPress.length; contador++) {
+                        //     // GERAR UM ARRY NOVO SEPARANDO OS NUMEROS DOS SINAIS DE '/'
+                        //     if (numPress.includes == '/') {
+                        //         const splitNumPress = numPress.split('/');
+                        //         setNumPress(splitNumPress.join('/') + numPress);
+                        //         console.log(splitNumPress)
+                        //     } else if (number == '*') {
+
+                        //     } else if (number == '-') {
+
+                        //     } else if (number == '+') {
+
+                        //     }
+                        //     // AQUI ESTA FUNCIONAL FALTA GERAR UM NOVO ARRAY SEPARANDO OS NUMEROS DOS SINAIS 
+
+                        //     // if (numPress[contador] == '/') {
+                        //     //     //pega o termo anterior ao sinal e posterior ao sinal(dois numero)
+                        //     //     num1 = numPress[contador - 1];
+                        //     //     num2 = numPress[contador + 1];
+                        //     //     //executa a multiplicação
+                        //     //     setResult(parseFloat(num1) * parseFloat(num2)) 
+                        //     //     // apaga os 3 termos do numPress referente a operação(n1,n2 e o sinal)
+                        //     //     numPress.slice(contador - 1, 3);
+                        //     //     //adiciona o resultado no lugar dos outros 3 termos
+                        //     //     numPress.slice(contador - 1, 0, resultado);
+                        //     //     console.log(num1)
+                        //     //     console.log(num2)
+                        //     // }
+                        // }
+                        // else if (botaoApertado == "=") {
+
+                        //     //um for que percore todo o arrey executando as multiplicação e divisão
+                        //     for (contador = 0; contador < array.length; contador++) {
+                        //         //achou multiplicação
+                        //         if (array[contador] == '*') {
+                        //             //pega o termo anterior ao sinal e posterior ao sinal(dois numero)
+                        //             num1 = parseFloat(array[contador - 1]);
+                        //             num2 = parseFloat(array[contador + 1]);
+                        //             //executa a multiplicação
+                        //             resultado = num1 * num2;
+                        //             // apaga os 3 termos do array referente a operação(n1,n2 e o sinal)
+                        //             array.splice(contador - 1, 3);
+                        //             //adiciona o resultado no lugar dos outros 3 termos
+                        //             array.splice(contador - 1, 0, resultado);
+                        //         }
+                        //         if (array[contador] == '/') {
+                        //             num1 = parseFloat(array[contador - 1]);
+                        //             num2 = parseFloat(array[contador + 1]);
+                        //             resultado = num1 * num2;
+                        //             array.splice(contador - 1, 3);
+                        //             array.splice(contador - 1, 0, resultado);
+                        //         }
+                        //     }
+                        //     for (contador = 0; contador < array.length; contador++) {
+                        //         if (array[contador] == '+') {
+                        //             num1 = parseFloat(array[contador - 1]);
+                        //             num2 = parseFloat(array[contador + 1]);
+                        //             resultado = num1 * num2;
+                        //             array.splice(contador - 1, 3);
+                        //             array.splice(contador - 1, 0, resultado);
+                        //         }
+                        //         if (array[contador] == '-') {
+                        //             num1 = parseFloat(array[contador - 1]);
+                        //             num2 = parseFloat(array[contador + 1]);
+                        //             resultado = num1 * num2;
+                        //             array.splice(contador - 1, 3);
+                        //             array.splice(contador - 1, 0, resultado);
+                        //         }
+                        //     }
+                        // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        // for (let i = 0; i < numPress.length; i++) {
+                        //     if (numPress.includes('/')) {
+
+                        //         num1 = parseFloat(numPress[i - 1]);
+                        //         num2 = parseFloat(numPress[i + 1]);
+                        //         // console.log(parseInt(numPress.substring(0, i)))
+                        //         console.log(num1)
+                        //         console.log(num2)
+                        //     }
+                        // }
+                        // console.log(numPress)
                     }
                     }
                 >
