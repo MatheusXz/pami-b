@@ -23,7 +23,7 @@ const App_6 = () => {
         } else {
             setTexto('Obesidade grau 3')
         }
-        setResultado(imc)
+        setResultado(imc.toFixed(2))
     }
 
 
@@ -60,7 +60,7 @@ const App_6 = () => {
                     <Text style={{ color: 'black', textTransform: 'capitalize' }}>Calculcar</Text>
                 </TouchableOpacity>
                 <Text style={styles.resultado}>
-                    {resultado.toFixed(2)}
+                    {resultado}
                 </Text>
                 <Text style={styles.resultado}>{texto}</Text>
             </View>

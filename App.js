@@ -11,8 +11,8 @@ import Apostila6 from './src/Components/Apostila6/'
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <Apostila6 /> */}
-      <Calc/>
+      <Apostila6 />
+      {/* <Calc/> */}
     </View>
   );
 }
